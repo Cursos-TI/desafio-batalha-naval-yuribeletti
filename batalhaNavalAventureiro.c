@@ -9,21 +9,69 @@ int main() {
     int tabuleiro[TAM][TAM] = {0};
     int i, j;
 
-    int l1 = 0, c1 = 0; 
-    if (l1 + TAM_NAVIO <= TAM) 
-        for (i = 0; i < TAM_NAVIO; i++) tabuleiro[l1 + i][c1] = NAVIO;
+    int l1 = 0, c1 = 0;
+    if (l1 + TAM_NAVIO <= TAM) {
+        int pode_colocar_navio1 = 1;
+        for (i = 0; i < TAM_NAVIO; i++) {
+            if (tabuleiro[l1 + i][c1] != AGUA) {
+                pode_colocar_navio1 = 0;
+                break;
+            }
+        }
+        if (pode_colocar_navio1) {
+            for (i = 0; i < TAM_NAVIO; i++) {
+                tabuleiro[l1 + i][c1] = NAVIO;
+            }
+        }
+    }
 
-    int l2 = 4, c2 = 3; 
-    if (c2 + TAM_NAVIO <= TAM) 
-        for (j = 0; j < TAM_NAVIO; j++) tabuleiro[l2][c2 + j] = NAVIO;
+    int l2 = 4, c2 = 3;
+    if (c2 + TAM_NAVIO <= TAM) {
+        int pode_colocar_navio2 = 1;
+        for (j = 0; j < TAM_NAVIO; j++) {
+            if (tabuleiro[l2][c2 + j] != AGUA) {
+                pode_colocar_navio2 = 0;
+                break;
+            }
+        }
+        if (pode_colocar_navio2) {
+            for (j = 0; j < TAM_NAVIO; j++) {
+                tabuleiro[l2][c2 + j] = NAVIO;
+            }
+        }
+    }
 
-    int l3 = 2, c3 = 2; 
-    if (l3 + TAM_NAVIO <= TAM && c3 + TAM_NAVIO <= TAM) 
-        for (i = 0; i < TAM_NAVIO; i++) tabuleiro[l3 + i][c3 + i] = NAVIO;
+    int l3 = 2, c3 = 2;
+    if (l3 + TAM_NAVIO <= TAM && c3 + TAM_NAVIO <= TAM) {
+        int pode_colocar_navio3 = 1;
+        for (i = 0; i < TAM_NAVIO; i++) {
+            if (tabuleiro[l3 + i][c3 + i] != AGUA) {
+                pode_colocar_navio3 = 0;
+                break;
+            }
+        }
+        if (pode_colocar_navio3) {
+            for (i = 0; i < TAM_NAVIO; i++) {
+                tabuleiro[l3 + i][c3 + i] = NAVIO;
+            }
+        }
+    }
 
-    int l4 = 1, c4 = 8; 
-    if (l4 + TAM_NAVIO <= TAM && c4 - (TAM_NAVIO - 1) >= 0) 
-        for (i = 0; i < TAM_NAVIO; i++) tabuleiro[l4 + i][c4 - i] = NAVIO;
+    int l4 = 1, c4 = 8;
+    if (l4 + TAM_NAVIO <= TAM && c4 - (TAM_NAVIO - 1) >= 0) {
+        int pode_colocar_navio4 = 1;
+        for (i = 0; i < TAM_NAVIO; i++) {
+            if (tabuleiro[l4 + i][c4 - i] != AGUA) {
+                pode_colocar_navio4 = 0;
+                break;
+            }
+        }
+        if (pode_colocar_navio4) {
+            for (i = 0; i < TAM_NAVIO; i++) {
+                tabuleiro[l4 + i][c4 - i] = NAVIO;
+            }
+        }
+    }
 
     for (i = 0; i < TAM; i++) {
         for (j = 0; j < TAM; j++) {
